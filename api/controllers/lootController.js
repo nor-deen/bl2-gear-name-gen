@@ -15,5 +15,5 @@ exports.getLoot = function (req, res) {
         lootpool = legendaries;
     var itemIndex = Math.floor(Math.random() * (lootpool.length - 1));
     var item = lootpool[itemIndex];
-    res.json(item);
+    res.send(item);
 };
