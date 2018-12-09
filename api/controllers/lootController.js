@@ -9,7 +9,7 @@ var legendaries = ["Legendary Nurse", "Legendary Ranger", "Legendary Titan", "Ne
     seraphs = ["Ahab", "Blood of the Seraphs", "Devastator", "Evolution", "Patriot", "Retcher", "Seraphim", "Tattler", "Big Boom Blaster", "Crossfire", "Hoplite", "Meteor Shower", "Might of the Seraphs", "O-Negative", "Pun-chee", "Sponge", "Breath of the Seraphs", "Hawk Eye", "Infection", "Interfacer", "Lead Storm", "Antagonist", "Blockade", "Florentine", "Omen", "Seeker", "Shadow of the Seraphs", "Stinger"],
 
     pearls = ["Bearcat", "Unforgiven", "Butcher", "Storm", "Avenger", "Stalker", "Sawbar", "Tunguska", "Bekah", "Godfinger", "Wanderlust", "Carnage"];
-var rarities = ["white", "white", "white", "white", "green", "green", "green", "blue", "blue", "purple"];
+var rarities = ["White", "White", "White", "White", "Green", "Green", "Green", "Blue", "Blue", "Purple"];
 exports.getLoot = function (req, res) {
     var tier = Math.random();
     var lootpool = [];
