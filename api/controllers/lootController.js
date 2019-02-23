@@ -23,12 +23,12 @@ exports.getLoot = function (req, res) {
         item = "";
         
     //39%
-    if (tier > 0.61) {
+    if (tier > 0.70) {
         lootpool = common;
         isCommon = true;
     }
     //30%
-    else if (tier > 0.31)
+    else if (tier > 0.36)
         lootpool = uniques;
     //18%
     else if (tier > 0.13)
