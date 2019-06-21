@@ -8,7 +8,10 @@ var legendaries = ["Legendary Nurse", "Legendary Ranger", "Legendary Titan", "Ne
 
     seraphs = ["Ahab", "Blood of the Seraphs", "Devastator", "Evolution", "Patriot", "Retcher", "Seraphim", "Tattler", "Big Boom Blaster", "Crossfire", "Hoplite", "Meteor Shower", "Might of the Seraphs", "O-Negative", "Pun-chee", "Sponge", "Breath of the Seraphs", "Hawk Eye", "Infection", "Interfacer", "Lead Storm", "Antagonist", "Blockade", "Florentine", "Omen", "Seeker", "Shadow of the Seraphs", "Stinger"],
 
-    pearls = ["Bearcat", "Unforgiven", "Butcher", "Storm", "Avenger", "Stalker", "Sawbar", "Tunguska", "Bekah", "Godfinger", "Wanderlust", "Carnage"];
+    pearls = ["Bearcat", "Unforgiven", "Butcher", "Storm", "Avenger", "Stalker", "Sawbar", "Tunguska", "Bekah", "Godfinger", "Wanderlust", "Carnage"],
+    
+    rainbows = ["Antifection", "Easy Mode", "Hard Carry", "Hats Off", "Hazardous Hombre", "Hazardous Immaterial", "Hot Mama", "Infechnical", "Infection Cleaner", "Infector Gadget", "Mouthwash", "MY BLISTERS HAVE BLISTERS", "Nirvana", "Overcompensator", "Peak Opener", "Rainbow Runner", "Retainer", "Technicl Spectale", "The Electric Chair", "Toothpick", "Unicornsplosion", "Virulent Strain", "World Burn"];
+
 var rarities = ["White", "White", "White", "White", "White", "Green", "Green", "Green", "Green", "Blue", "Blue", "Blue", "Purple", "Purple"];
 exports.getLoot = function (req, res) {
     var tier = Math.random(),
@@ -22,20 +25,23 @@ exports.getLoot = function (req, res) {
         itemIndex = 0,
         item = "";
         
-    //39%
-    if (tier > 0.70) {
+    //29%
+    if (tier > 0.71) {
         lootpool = common;
         isCommon = true;
     }
-    //30%
-    else if (tier > 0.36)
+    //32%
+    else if (tier > 0.39)
         lootpool = uniques;
-    //18%
-    else if (tier > 0.13)
+    //22%
+    else if (tier > 0.17)
         lootpool = legendaries;
-    //8%
-    else if (tier > 0.05)
+    //7%
+    else if (tier > 0.1)
         lootpool = seraphs;
+    //5%
+    else if (tier > 0.05)
+        lootpool = rainbows;
     //5%
     else
         lootpool = pearls;
