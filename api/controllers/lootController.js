@@ -9,10 +9,18 @@ var legendaries = ["Legendary Nurse", "Legendary Ranger", "Legendary Titan", "Ne
     seraphs = ["Ahab", "Blood of the Seraphs", "Devastator", "Evolution", "Patriot", "Retcher", "Seraphim", "Tattler", "Big Boom Blaster", "Crossfire", "Hoplite", "Meteor Shower", "Might of the Seraphs", "O-Negative", "Pun-chee", "Sponge", "Breath of the Seraphs", "Hawk Eye", "Infection", "Interfacer", "Lead Storm", "Antagonist", "Blockade", "Florentine", "Omen", "Seeker", "Shadow of the Seraphs", "Stinger"],
 
     pearls = ["Bearcat", "Unforgiven", "Butcher", "Storm", "Avenger", "Stalker", "Sawbar", "Tunguska", "Bekah", "Godfinger", "Wanderlust", "Carnage"],
-    
-    rainbows = ["Antifection", "Easy Mode", "Hard Carry", "Hats Off", "Hazardous Hombre", "Hazardous Immaterial", "Hot Mama", "Infechnical", "Infection Cleaner", "Infector Gadget", "Mouthwash", "MY BLISTERS HAVE BLISTERS", "Nirvana", "Overcompensator", "Peak Opener", "Rainbow Runner", "Retainer", "Technicl Spectale", "The Electric Chair", "Toothpick", "Unicornsplosion", "Virulent Strain", "World Burn"];
 
-var rarities = ["White", "White", "White", "White", "White", "Green", "Green", "Green", "Green", "Blue", "Blue", "Blue", "Purple", "Purple"];
+    rainbows = ["Antifection", "Easy Mode", "Hard Carry", "Hats Off", "Hazardous Hombre", "Hazardous Immaterial", "Hot Mama", "Infechnical", "Infection Cleaner", "Infector Gadget", "Mouthwash", "MY BLISTERS HAVE BLISTERS", "Nirvana", "Overcompensator", "Peak Opener", "Rainbow Runner", "Retainer", "Technicl Spectale", "The Electric Chair", "Toothpick", "Unicornsplosion", "Virulent Strain", "World Burn"],
+
+    rarities = ["White", "White", "White", "White", "White",
+        "Green", "Green", "Green", "Green",
+        "Blue", "Blue", "Blue",
+        "Purple", "Purple",
+        "Gemstone"
+    ],
+    manufacturer = ["Bandit", "Dahl", "Hyperion", "Jakobs", "Maliwan", "Tediore", "Torgue", "Vladof"],
+    manufacturerGemStone = ["Quartz", "Emerald", "Diamond", "Citrine", "Aquamarine", "Cubic Zerconia", "Rock", "Garnet"];
+
 exports.getLoot = function (req, res) {
     var tier = Math.random(),
         lootpool = [],
@@ -23,8 +31,14 @@ exports.getLoot = function (req, res) {
         lastGreenIndex = 158,
         shift = 0,
         itemIndex = 0,
-        item = "";
-        
+        item = "",
+        rarity = "";
+    function getGemstoneName(item) {
+        for (let i = 0; i < manufacturer.length; i++)
+            if (item.includes(manufacturer[i]))
+                return manufacturerGemStone[i];
+        return "";
+    }
     //29%
     if (tier > 0.71) {
         lootpool = common;
@@ -57,9 +71,12 @@ exports.getLoot = function (req, res) {
     else if (isGreen)
         shift = 5;
 
-    if (isCommon && itemIndex < (lootpool.length - 1))
-        item = rarities[Math.floor(Math.random() * (rarities.length - (0.00001 + shift))) + shift] + " " + item;
+    if (isCommon && itemIndex < (lootpool.length - 1)) {
+        rarity = rarities[Math.floor(Math.random() * (rarities.length - (0.00001 + shift))) + shift];
+        if(rarity === "Gemstone")
+            rarity = getGemstoneName(item);
+    }
     //item = item[0].match(/[aeyuioAEYUIO]/) ? "an " + item : "a " + item;
 
-    res.send(item);
+    res.send(`${rarity} ${item}`);
 };
