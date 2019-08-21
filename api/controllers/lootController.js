@@ -34,6 +34,8 @@ exports.getLoot = function (req, res) {
         item = "",
         rarity = "";
     function getGemstoneName(item) {
+        if(item.includes("launcher"))
+            return "Purple";
         for (let i = 0; i < manufacturer.length; i++)
             if (item.includes(manufacturer[i]))
                 return manufacturerGemStone[i];
