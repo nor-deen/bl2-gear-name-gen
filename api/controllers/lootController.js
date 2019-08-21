@@ -10,7 +10,7 @@ var legendaries = ["Legendary Nurse", "Legendary Ranger", "Legendary Titan", "Ne
 
     pearls = ["Bearcat", "Unforgiven", "Butcher", "Storm", "Avenger", "Stalker", "Sawbar", "Tunguska", "Bekah", "Godfinger", "Wanderlust", "Carnage"],
 
-    rainbows = ["Antifection", "Easy Mode", "Hard Carry", "Hats Off", "Hazardous Hombre", "Hazardous Immaterial", "Hot Mama", "Infechnical", "Infection Cleaner", "Infector Gadget", "Mouthwash", "MY BLISTERS HAVE BLISTERS", "Nirvana", "Overcompensator", "Peak Opener", "Rainbow Runner", "Retainer", "Technicl Spectale", "The Electric Chair", "Toothpick", "Unicornsplosion", "Virulent Strain", "World Burn"],
+    rainbows = ["Antifection", "Easy Mode", "Hard Carry", "Hot Mama", "Infection Cleaner", "Mouthwash", "Nirvana", "Overcompensator", "Peak Opener", "Retainer", "The Electric Chair", "Toothpick", "Unicornsplosion", "World Burn"],
 
     rarities = ["White", "White", "White", "White", "White",
         "Green", "Green", "Green", "Green",
