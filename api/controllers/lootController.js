@@ -22,7 +22,7 @@ var legendaries = ["Legendary Nurse", "Legendary Ranger", "Legendary Titan", "Ne
     manufacturerGemStone = ["Quartz", "Emerald", "Diamond", "Citrine", "Aquamarine", "Cubic Zerconia", "Rock", "Garnet"];
 
 exports.getLoot = function (req, res) {
-    var tier = Math.random(),
+    let tier = Math.random(),
         lootpool = [],
         isCommon = false,
         isGreen = false,
@@ -32,6 +32,7 @@ exports.getLoot = function (req, res) {
         shift = 0,
         itemIndex = 0,
         item = "",
+        article = "",
         rarity = "";
     function getGemstoneName(item) {
         if(item.includes("launcher"))
@@ -77,8 +78,10 @@ exports.getLoot = function (req, res) {
         rarity = rarities[Math.floor(Math.random() * (rarities.length - (0.00001 + shift))) + shift];
         if(rarity === "Gemstone")
             rarity = getGemstoneName(item);
+        rarity +=" "
     }
-    //item = item[0].match(/[aeyuioAEYUIO]/) ? "an " + item : "a " + item;
+    item = `${rarity}${item}`;
+    article = item[0].match(/[aeyuioAEYUIO]/) ? "an" : "a";
 
-    res.send(`${rarity} ${item}`);
+    res.send(`${article} ${item}`);
 };
