@@ -42,12 +42,12 @@ exports.getLoot = function (req, res) {
                 return manufacturerGemStone[i];
         return "";
     }
-    //29%
-    if (tier > 0.71) {
+    //28%
+    if (tier > 0.72) {
         lootpool = common;
         isCommon = true;
     }
-    //32%
+    //33%
     else if (tier > 0.39)
         lootpool = uniques;
     //22%
